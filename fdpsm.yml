@@ -27,7 +27,6 @@ dependencies:
   - tzdata=2023d=h0c530f3_0
   - wheel=0.42.0=pyhd8ed1ab_0
   - xz=5.2.6=h166bdaf_0
-  - pyvcf=0.6.8
   - pip:
     - cycler==0.12.1
     - fonttools==4.47.2
@@ -53,6 +52,3 @@ dependencies:
     - statsmodels==0.14.1
     - threadpoolctl==3.2.0
     - tqdm==4.66.1
-    - mmsplice
-    - cyvcf2
-    - cython

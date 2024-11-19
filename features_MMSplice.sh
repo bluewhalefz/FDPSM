@@ -1,11 +1,10 @@
 #!/bin/bash
 
-export hg19="/data1/jinfangfang/Project/ML-GVP/prepare_data/db/gencode/GRCh37/Homo_sapiens.GRCh37.dna.primary_assembly.fa"
-export hg38="/data1/jinfangfang/Project/ML-GVP/prepare_data/db/gencode/GRCh38/Homo_sapiens.GRCh38.dna.primary_assembly.fa"
-export hg19_gtf="/data1/jinfangfang/Project/ML-GVP/prepare_data/db/gencode/gtf/gencode.v34lift37.annotation.gtf"
-export hg38_gtf="/data1/jinfangfang/Project/ML-GVP/prepare_data/db/gencode/gtf/gencode.v34.annotation.gtf"
-export LD_LIBRARY_PATH="/data1/jinfangfang/anaconda3/envs/mmsplice1/lib:$LD_LIBRARY_PATH"
-export mmsplice_python="/data1/jinfangfang/anaconda3/envs/mmsplice1/bin/python3" 
+export hg19="data/Homo_sapiens/GRCh37/Homo_sapiens.GRCh37.dna.primary_assembly.fa"
+export hg38="data/Homo_sapiens/GRCh38/Homo_sapiens.GRCh38.dna.primary_assembly.fa"
+export hg19_gtf="data/gtf/gencode.v34lift37.annotation.gtf"
+export hg38_gtf="data/gtf/gencode.v34.annotation.gtf"
+
 
 if [ $# -lt 3 ]; then
     echo "usage: $0 vcf buildver outdir"
@@ -55,9 +54,7 @@ if [ -e ${avinput}.mmsplice.tsv ]; then
     echo -e "- skip mmsplice"
 else
     echo -e "- run mmsplice => ${avinput}.mmsplice.tsv"
-    $mmsplice_python $SRC/mmsplice_predict.py -vcf $vcf --gtf $gtf --fasta $ref_fasta -o ${avinput}.mmsplice.tsv  -bs  256 > ${avinput}.mmsplice.tsv.log
+    $python $SRC/mmsplice_predict.py -vcf $vcf --gtf $gtf --fasta $ref_fasta -o ${avinput}.mmsplice.tsv  -bs  256 > ${avinput}.mmsplice.tsv.log
 fi
-$SRC/prepare_mmsplice.py -vcf $vcf -m ${avinput}.mmsplice.tsv 2> ${avinput}.features-mmsplice.tsv.log > ${avinput}.features-mmsplice.tsv || exit "ERROR in mmsplice module!"
-python process_MMsplice.py  --inputfile ${avinput}.features-mmsplice.tsv --source $source_file --outfile $outfile
-
-
+$SRC/prepare_mmsplice.py -vcf ${vcf} -m ${avinput}.mmsplice.tsv 2> ${avinput}.features-mmsplice.tsv.log > ${avinput}.features-mmsplice.tsv || exit "ERROR in mmsplice module!"
+python $SRC/process_MMsplice.py  --inputfile ${avinput}.features-mmsplice.tsv --source $source_file --outfile $outfile
