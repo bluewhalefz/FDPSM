@@ -34,8 +34,8 @@ gunzip data/annovar/humandb/hg38_gnomad30_genome.txt.gz
 gunzip data/annovar/humandb/hg38_gnomad30_genome.txt.idx.gz
 gunzip data/Homo_sapiens/GRCh38/Homo_sapiens.GRCh38.dna.primary_assembly.fa.gz
 gunzip data/Homo_sapiens/GRCh37/Homo_sapiens.GRCh37.dna.primary_assembly.fa.gz
-gunzip data/gtf/gencode.v47lift37.annotation.gtf.gz
-gunzip data/gtf/gencode.v47.annotation.gtf.gz
-#�밲װsamtools��apt install samtools
+gunzip data/gtf/gencode.v34lift37.annotation.gtf.gz
+gunzip data/gtf/gencode.v34.annotation.gtf.gz
+#Çë°²×°samtools£ºapt install samtools
 samtools faidx data/Homo_sapiens/GRCh37/Homo_sapiens.GRCh37.dna.primary_assembly.fa
 samtools faidx data/Homo_sapiens/GRCh38/Homo_sapiens.GRCh38.dna.primary_assembly.fa
