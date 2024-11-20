@@ -1,7 +1,7 @@
 ## FDPSM framework
 ### Basic requirements
 1. Use `conda env create -f fdpsm.yml` to create the conda environment is recommanded.  <br />
-   (python v3.9.12   LightGBM v4.4.0      OpenFE v0.0.12)<br />
+   (python &nbsp; v3.9.12 &emsp; LightGBM &nbsp; v4.4.0  &emsp;   OpenFE &nbsp; v0.0.12)<br />
 
 2. SpliceAI(Use `conda env create -f spliceai.yml` to create the conda environment is recommanded).<br />
 
@@ -9,6 +9,7 @@
    conda create -n mmsplice python=3.8<br />
    pip install cyvcf2 cython<br />
    pip install mmsplice<br />
+   pip install numpy==1.26.4 <br />
 
 4. Download file: bash download.sh<br />
 
