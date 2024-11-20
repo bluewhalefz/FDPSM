@@ -29,8 +29,6 @@ export bn=${bn%.vcf}
 export WORKING_DIR=$(dirname `realpath $0`)
 
 
-
-
 ## configuration of variables
 if [ $buildver = "hg19" ]; then
     export ref_fasta="$hg19"
@@ -54,7 +52,7 @@ if [ -e ${avinput}.mmsplice.tsv ]; then
     echo -e "- skip mmsplice"
 else
     echo -e "- run mmsplice => ${avinput}.mmsplice.tsv"
-    $python $SRC/mmsplice_predict.py -vcf $vcf --gtf $gtf --fasta $ref_fasta -o ${avinput}.mmsplice.tsv  -bs  256 > ${avinput}.mmsplice.tsv.log
+    python $SRC/mmsplice_predict.py -vcf $vcf --gtf $gtf --fasta $ref_fasta -o ${avinput}.mmsplice.tsv  -bs  256 > ${avinput}.mmsplice.tsv.log
 fi
-$SRC/prepare_mmsplice.py -vcf ${vcf} -m ${avinput}.mmsplice.tsv 2> ${avinput}.features-mmsplice.tsv.log > ${avinput}.features-mmsplice.tsv || exit "ERROR in mmsplice module!"
+$SRC/prepare_mmsplice.py -vcf $vcf -m ${avinput}.mmsplice.tsv 2> ${avinput}.features-mmsplice.tsv.log > ${avinput}.features-mmsplice.tsv || exit "ERROR in mmsplice module!"
 python $SRC/process_MMsplice.py  --inputfile ${avinput}.features-mmsplice.tsv --source $source_file --outfile $outfile
