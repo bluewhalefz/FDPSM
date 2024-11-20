@@ -32,8 +32,10 @@
    $3: the name of the input file (test)(no contain extensions).<br />
    
    Input format of input file<br />
-   |  Chr  | Start |  End  |  Ref  |  Alt  | <br />
-   | ----- | ----- | ----- | ----- | ----- | <br />
+   |  Chr  | Start |  End  |  Ref  | Alt | 
+   |:----|:----|:----|:----|:----|
+   | chr15 | 89260843 | 89260843 | G | A |
+   |...|...|...|...|...|
       "Chr" indicates the chromosome number, "Start" indicates the specific location where the mutation begins, <br />
       "End" indicates the specific location where the mutation ends, "Ref" indicates the base before the mutation, <br />
       and "Alt" indicates the base after the mutation<br />
