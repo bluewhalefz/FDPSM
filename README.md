@@ -35,7 +35,8 @@
    |  Chr  | Start |  End  |  Ref  | Alt | 
    |:----|:----|:----|:----|:----|
    | chr15 | 89260843 | 89260843 | G | A |
-   |...|...|...|...|...| <br />
+   |...|...|...|...|...| 
+   <br />
    "Chr" indicates the chromosome number, "Start" indicates the specific location where the mutation begins, <br />
    "End" indicates the specific location where the mutation ends, "Ref" indicates the base before the mutation, <br />
    and "Alt" indicates the base after the mutation<br />
