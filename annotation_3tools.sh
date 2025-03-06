@@ -6,7 +6,7 @@ DATA_FILE="$1"
 OUTPUT_FILE="$2"
 FILE_NAME="$3"
 #source activate magpie
-#python code/prepare_input.py --inputfile "${DATA_FILE} --filename "${FILE_NAME}""
+#python code/prepare_input.py --inputfile "${DATA_FILE} --filename "${FILE_NAME}"
 #echo "table_annovar.pl path is ${ANNOVAR_DIR}table_annovar.pl"
 #echo "path:${FILE_NAME}"
 #perl ${ANNOVAR_DIR}table_annovar.pl ${ANNOVAR_DATA_DIR}"${FILE_NAME}".avinput ${ANNOVAR_DATA_DIR}humandb/ -buildver hg38 -out ${ANNOVAR_DATA_DIR}"${FILE_NAME}" -remove -protocol refGene,phastConsElements100way,gnomad30_genome,dbnsfp33a,dbnsfp42a -operation g,r,f,f,f -csvout
