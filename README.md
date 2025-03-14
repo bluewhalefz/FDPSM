@@ -88,6 +88,4 @@ Noting：
 
 2. In SpliceAI, the extracted feature values are random. We found this on March 10, 2025. Later, we extracted random feature values ten times and conducted ten experiments. The results showed almost no impact on model performance, with a variance of 0.002 in both AUC and AUPR. Therefore, in the data section, we provide the SpliceAI - extracted features. The subsequent experimental analysis is based on fixed values.
 
-3. In the "Advantage of Dataset and Model" section, the evaluation scores for CADD come from version 1.4, with a predicted AUC of 0.8263 and an AUPR of 0.6823. In contrast, the results obtained using CADDv1.7 show an AUC of 0.9074 and an AUPR of 0.8908.
-
-4. As the DART model randomly discards features, if you find discrepancies between the final retained features and our provided optimal subset when reproducing our code, this is normal. We conducted ten experiments and found similar performance across all, with AUC and AUPR variances both within 0.003.
+3. As the DART model randomly discards features, if you find discrepancies between the final retained features and our provided optimal subset when reproducing our code, this is normal. We conducted ten experiments and found similar performance across all, with AUC and AUPR variances both within 0.003.
