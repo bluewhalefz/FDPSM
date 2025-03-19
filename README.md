@@ -1,7 +1,7 @@
 ## FDPSM framework
 
 ### Download
-1. For the features, we have collected 111-dimensional features for all synonymous mutations across the entire genome. The download link for the data file is:https://zenodo.org/records/15048689/files/wholeGenome_final_111fea.csv?download=1
+1. For the features, we have collected 111-dimensional features for all synonymous mutations across the entire genome. The download link for the data file is: https://zenodo.org/records/15048689/files/wholeGenome_final_111fea.csv?download=1
 
 ### Basic requirements
 1. Use `conda env create -f fdpsm.yml` to create the conda environment is recommanded.  <br />
