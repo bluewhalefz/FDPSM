@@ -34,8 +34,8 @@ selection_params = {
     'num_leaves': 31,
     'max_depth':5,     #ver1：max_depth : 6   
     'max_bin': 255,
-    'min_data_in_leaf': 61,    #ver：min_data_in_leaf = 101
-    'learning_rate': 0.01,    # ver1、ver2:'learning_rate': 0.01
+    'min_data_in_leaf': 61,    
+    'learning_rate': 0.01,  
     'feature_fraction': 1.0,
     'bagging_fraction': 1.0,
     'bagging_freq': 45,
@@ -76,12 +76,12 @@ def train_model(df_train, y_train):
                     )
     return gbm
 
-def autofe(data, openfe_features, selectedFea_file, importance_file, feaName_file):
+def autofe(data, openfe_features, selectedFea_file, feaName_file):
     print('---' + time.asctime(time.localtime(time.time())) + '--- autoFE\n')
-    # train_info记录前四列的信息，Chrom、Pos、Ref Alt CLASS
+    # train_info记录训练集的信息，如Chrom、Pos、Ref Alt Label
     train_info = data.iloc[:, :10]
     X_train = data.iloc[:, 10:].astype('float64')
-    _, X_test = train_test_split(X_train, test_size=0.1)
+    _, X_test = train_test_split(X_train, test_size=0.1, random_state=4)
     Y_train = np.array(data['label']).reshape(len(data['label']), )
 
     ofe = OpenFE()
@@ -208,7 +208,7 @@ def step_training(data, model_file, FDPSM_importance):
     df.to_csv(FDPSM_importance, index=False)
      
     # 保存模型
-    joblib.dump(gbm, os.path.join(root, model_file))  # 确保root变量已定义
+    joblib.dump(gbm, model_file)  # 确保root变量已定义
 
 
 if __name__ == "__main__":
@@ -217,12 +217,11 @@ if __name__ == "__main__":
     parser.add_argument("--selectedFea")
     parser.add_argument("--openfe_features")
     parser.add_argument("--model_file", type=str, help="输出文件")
-    parser.add_argument("--importance_file", type=str, help="输出文件")
     parser.add_argument("--feaName_file", type=str, help="输出文件")
     parser.add_argument("--FDPSM_importance", type=str)
 
     args = parser.parse_args()
     data = pd.read_csv(args.train_file)
-    #data = autofe(data, args.openfe_features, args.selectedFea, args.importance_file, args.feaName_file)
+    data = autofe(data, args.openfe_features, args.selectedFea, args.feaName_file)
     print(data.shape)
     step_training(data, args.model_file, args.FDPSM_importance)
