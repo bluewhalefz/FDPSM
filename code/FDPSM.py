@@ -59,7 +59,7 @@ def load_data(df_train, y_train):
         train_x,
         train_y,
         test_size=0.2,
-        random_state=2024,
+        random_state=1,
         stratify=train_y
     )
     lgb_train = lgb.Dataset(X, y)
